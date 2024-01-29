@@ -21,7 +21,10 @@ createServer((page) =>
                     ...page.props.ziggy,
                     location: new URL(page.props.ziggy.location),
                 })
-                .use(PrimeVue, { ripple: true });
+                // I have also tried using this in app.js which is the normal vite createApp. 
+                // The only difference is that the ssr server starts instead of throwing an error and only 
+                // crashes with the error when you visit a page that uses a primevue component.
+                .use(PrimeVue, { unstyled: true });
                 
         },
     })
